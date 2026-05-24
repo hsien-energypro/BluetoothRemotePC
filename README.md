@@ -1,1 +1,0 @@
-PC BLE Debug Logger
