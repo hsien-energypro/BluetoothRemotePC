@@ -28,10 +28,10 @@ jobs:
 
       - name: Build EXE
         run: |
-          pyinstaller --onefile --windowed --name BluetoothRemotePC AutoWriter.py
+          pyinstaller --onefile --windowed --name BluetoothRemotePC_DebugLogger AutoWriter_DebugLogger.py
 
       - name: Upload EXE artifact
         uses: actions/upload-artifact@v4
         with:
-          name: BluetoothRemotePC-Windows-EXE
-          path: dist/BluetoothRemotePC.exe
+          name: BluetoothRemotePC-DebugLogger-Windows-EXE
+          path: dist/BluetoothRemotePC_DebugLogger.exe
