@@ -1,3 +1,3 @@
-# BluetoothRemotePC Control Test
+# BluetoothRemotePC Fixed 5576
 
-Upload to GitHub and run Actions to build EXE.
+Use Major 5576 for pairing and control.
