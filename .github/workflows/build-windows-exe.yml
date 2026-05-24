@@ -1,1 +1,37 @@
+name: Build Windows EXE
 
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  build-windows-exe:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          architecture: "x64"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Build EXE
+        run: |
+          pyinstaller --onefile --windowed --name BluetoothRemotePC AutoWriter.py
+
+      - name: Upload EXE artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: BluetoothRemotePC-Windows-EXE
+          path: dist/BluetoothRemotePC.exe
